@@ -1,5 +1,6 @@
 # Gestor-de-notas-final-ingenieria
 Proyecto Final Algoritmos
+
 Descripción general
 
 El **Gestor de Notas Académicas** es un sistema desarrollado en Python que permite a estudiantes y docentes registrar, consultar, actualizar y analizar las calificaciones de diferentes cursos de forma sencilla.  
