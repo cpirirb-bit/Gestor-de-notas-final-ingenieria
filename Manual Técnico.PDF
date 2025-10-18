@@ -1,0 +1,26 @@
+Manual Técnico
+
+Principales componentes:
+- **Funciones principales:** controlan el menú, entrada de datos y flujo de ejecución.
+- **Diccionario `notas`:** almacena los cursos como claves y las calificaciones como valores.
+- **Lista `historial`:** actúa como una pila (LIFO) para registrar las acciones realizadas.
+- **Cola `revisiones`:** gestionada con `collections.deque` para procesar revisiones pendientes.
+- **Algoritmos de ordenamiento:** Burbuja e Inserción, aplicados sobre la lista de notas.
+
+Tecnologías usadas
+- Lenguaje: **Python 3**
+- Entorno: **Consola / Terminal**
+- Estructuras empleadas: **listas, diccionarios, pilas, colas**
+- Algoritmos implementados: **Burbuja, Inserción**
+
+Arquitectura del código
+- `mostrar_menu()`: imprime las opciones del sistema.
+- `registrar_curso()`: agrega un nuevo curso y nota.
+- `mostrar_notas()`: visualiza todos los cursos.
+- `calcular_promedio()`: calcula el promedio general.
+- `buscar_curso()`: búsqueda lineal por nombre.
+- `actualizar_nota()`: modifica la nota de un curso.
+- `eliminar_curso()`: borra un curso existente.
+- `ver_historial()`: muestra la pila de acciones.
+- `ver_revisiones()`: atiende la cola de revisiones.
+- `ordenar_notas()`: aplica los métodos de ordenamiento.
