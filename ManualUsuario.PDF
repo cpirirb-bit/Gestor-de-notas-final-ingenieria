@@ -1,0 +1,43 @@
+Manual de Usuario 
+
+Instrucciones de uso
+
+1. **Ejecutar el programa**
+   ```bash
+   python gestor_notas_final.py
+Interfaz de menú
+El sistema mostrará un menú con 10 opciones numeradas.
+Usa el número correspondiente para elegir una acción.
+
+Ejemplo de uso
+
+Opción 1: Registrar un nuevo curso.
+→ Escribe el nombre del curso y la nota.
+
+Opción 2: Mostrar todas las notas registradas.
+
+Opción 3: Calcular el promedio general.
+
+Opción 5: Actualizar nota existente.
+
+Opción 6: Eliminar curso.
+
+Opción 7: Ver historial (acciones realizadas).
+
+Opción 9: Ver ordenamiento de notas por Burbuja e Inserción.
+
+Opción 0: Salir del programa.
+
+Ejemplo de salida
+
+=== GESTOR DE NOTAS ACADÉMICAS ===
+1. Registrar nuevo curso y nota
+2. Mostrar todas las notas
+3. Calcular promedio general
+4. Buscar curso por nombre
+5. Actualizar nota de un curso
+6. Eliminar curso
+7. Ver historial (Pila)
+8. Revisiones pendientes (Cola)
+9. Ordenar notas (Burbuja e Inserción)
+0. Salir
