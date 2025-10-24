@@ -1,0 +1,128 @@
+INICIO
+
+    # ======== ESTRUCTURAS DE DATOS ========
+
+    notas ← lista vacía
+    historial ← pila vacía
+    revision ← cola vacía
+
+    # ======== FUNCIONES ========
+
+    FUNCION registrarNota()
+        IMPRIMIR "Ingrese el nombre del curso:"
+        LEER curso
+        IMPRIMIR "Ingrese la nota:"
+        LEER nota
+        AGREGAR (curso, nota) A notas
+
+        # Guardar acción en el historial (PILA)
+        APILAR(historial, "Se registró el curso " + curso)
+        IMPRIMIR "Curso registrado y agregado al historial."
+    FIN_FUNCION
+
+    FUNCION mostrarNotas()
+        SI longitud(notas) = 0 ENTONCES
+            IMPRIMIR "No hay notas registradas."
+        SINO
+            IMPRIMIR "===== LISTA DE NOTAS ====="
+            PARA cada elemento EN notas HACER
+                IMPRIMIR "Curso: ", elemento.curso, " - Nota: ", elemento.nota
+            FIN_PARA
+        FIN_SI
+    FIN_FUNCION
+
+    FUNCION agregarRevision()
+        IMPRIMIR "Ingrese el curso a revisar:"
+        LEER curso
+        ENCOLAR(revision, curso)
+        IMPRIMIR "Curso agregado a la cola de revisión."
+    FIN_FUNCION
+
+    FUNCION procesarRevision()
+        SI cola_vacia(revision) ENTONCES
+            IMPRIMIR "No hay cursos pendientes de revisión."
+        SINO
+            curso ← DESENCOLAR(revision)
+            IMPRIMIR "Revisando curso: ", curso
+            APILAR(historial, "Se revisó el curso " + curso)
+        FIN_SI
+    FIN_FUNCION
+
+    FUNCION mostrarHistorial()
+        SI pila_vacia(historial) ENTONCES
+            IMPRIMIR "El historial está vacío."
+        SINO
+            IMPRIMIR "===== HISTORIAL DE ACCIONES ====="
+            MIENTRAS NO pila_vacia(historial) HACER
+                accion ← DESAPILAR(historial)
+                IMPRIMIR accion
+            FIN_MIENTRAS
+        FIN_SI
+    FIN_FUNCION
+
+    # ======== ORDENAMIENTO BURBUJA ========
+    FUNCION ordenarBurbuja()
+        IMPRIMIR "Ordenando notas con método Burbuja..."
+        n ← longitud(notas)
+        PARA i ← 0 HASTA n-2 HACER
+            PARA j ← 0 HASTA n-i-2 HACER
+                SI notas[j].nota > notas[j+1].nota ENTONCES
+                    temp ← notas[j]
+                    notas[j] ← notas[j+1]
+                    notas[j+1] ← temp
+                FIN_SI
+            FIN_PARA
+        FIN_PARA
+        IMPRIMIR "Notas ordenadas correctamente (Burbuja)."
+    FIN_FUNCION
+
+    # ======== ORDENAMIENTO POR INSERCIÓN ========
+    FUNCION ordenarInsercion()
+        IMPRIMIR "Ordenando notas con método de Inserción..."
+        PARA i ← 1 HASTA longitud(notas)-1 HACER
+            actual ← notas[i]
+            j ← i - 1
+            MIENTRAS j >= 0 Y notas[j].nota > actual.nota HACER
+                notas[j + 1] ← notas[j]
+                j ← j - 1
+            FIN_MIENTRAS
+            notas[j + 1] ← actual
+        FIN_PARA
+        IMPRIMIR "Notas ordenadas correctamente (Inserción)."
+    FIN_FUNCION
+
+    # ======== MENÚ PRINCIPAL ========
+    REPETIR
+        IMPRIMIR "===== GESTIÓN DE ESTRUCTURAS Y ORDENAMIENTO ====="
+        IMPRIMIR "1. Registrar nueva nota"
+        IMPRIMIR "2. Mostrar notas"
+        IMPRIMIR "3. Agregar curso a revisión"
+        IMPRIMIR "4. Procesar revisión"
+        IMPRIMIR "5. Mostrar historial"
+        IMPRIMIR "6. Ordenar por Burbuja"
+        IMPRIMIR "7. Ordenar por Inserción"
+        IMPRIMIR "8. Salir"
+        LEER opcion
+
+        SI opcion = 1 ENTONCES
+            registrarNota()
+        SINO SI opcion = 2 ENTONCES
+            mostrarNotas()
+        SINO SI opcion = 3 ENTONCES
+            agregarRevision()
+        SINO SI opcion = 4 ENTONCES
+            procesarRevision()
+        SINO SI opcion = 5 ENTONCES
+            mostrarHistorial()
+        SINO SI opcion = 6 ENTONCES
+            ordenarBurbuja()
+        SINO SI opcion = 7 ENTONCES
+            ordenarInsercion()
+        SINO SI opcion = 8 ENTONCES
+            IMPRIMIR "Saliendo..."
+        SINO
+            IMPRIMIR "Opción inválida, intente de nuevo."
+        FIN_SI
+    MIENTRAS opcion <> 8
+
+FIN
