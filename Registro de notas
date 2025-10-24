@@ -1,0 +1,43 @@
+INICIO
+
+    # Declarar estructura para guardar las notas
+    notas ← lista vacía
+
+    # REGISTRO DE NOTAS
+    IMPRIMIR "¿Cuántos cursos desea registrar?"
+    LEER n
+
+    PARA i ← 1 HASTA n HACER
+        IMPRIMIR "Ingrese el nombre del curso ", i, ":"
+        LEER curso
+
+        IMPRIMIR "Ingrese la nota del curso ", curso, ":"
+        LEER nota
+
+        AGREGAR (curso, nota) A notas
+    FIN_PARA
+
+    # VISUALIZACIÓN DE NOTAS
+    IMPRIMIR "===== LISTA DE NOTAS REGISTRADAS ====="
+    SI longitud(notas) = 0 ENTONCES
+        IMPRIMIR "No hay notas registradas."
+    SINO
+        PARA cada elemento EN notas HACER
+            IMPRIMIR "Curso: ", elemento.curso, " - Nota: ", elemento.nota
+        FIN_PARA
+    FIN_SI
+
+    # CÁLCULO DEL PROMEDIO
+    SI longitud(notas) > 0 ENTONCES
+        suma ← 0
+        PARA cada elemento EN notas HACER
+            suma ← suma + elemento.nota
+        FIN_PARA
+
+        promedio ← suma / longitud(notas)
+        IMPRIMIR "El promedio de notas es: ", promedio
+    SINO
+        IMPRIMIR "No se puede calcular promedio. No hay notas registradas."
+    FIN_SI
+
+FIN
