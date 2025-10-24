@@ -1,0 +1,29 @@
+INICIO
+    REPETIR
+        IMPRIMIR \"===== GESTOR DE NOTAS ACADÉMICAS =====\"
+        IMPRIMIR \"1. Registrar nuevo curso y nota\"
+        IMPRIMIR \"2. Mostrar todas las notas\"
+        IMPRIMIR \"3. Calcular promedio de notas\"
+        IMPRIMIR \"4. Buscar nota por curso\"
+        IMPRIMIR \"5. Eliminar curso y nota\"
+        IMPRIMIR \"6. Salir\"
+        IMPRIMIR \"Seleccione una opción:\"
+        LEER opcion
+
+        SI opcion = 1 ENTONCES
+            <registrar nuevo curso y nota>
+        SINO SI opcion = 2 ENTONCES
+            <mostrar todas las notas>
+        SINO SI opcion = 3 ENTONCES
+            <calcular promedio>
+        SINO SI opcion = 4 ENTONCES
+            <buscar nota por curso>
+        SINO SI opcion = 5 ENTONCES
+            <eliminar curso y nota>
+        SINO SI opcion = 6 ENTONCES
+            IMPRIMIR \"Saliendo del sistema...\"
+        SINO
+            IMPRIMIR \"Opción inválida, intente de nuevo.\"
+        FIN_SI
+    MIENTRAS opcion <> 6
+FIN"
