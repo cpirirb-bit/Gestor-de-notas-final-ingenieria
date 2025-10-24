@@ -1,0 +1,76 @@
+INICIO
+
+    # Declarar lista para almacenar las notas
+    notas ← lista vacía
+
+    # FUNCIÓN PARA REGISTRAR NOTAS
+    FUNCION registrarNotas()
+        IMPRIMIR "¿Cuántos cursos desea registrar?"
+        LEER n
+        PARA i ← 1 HASTA n HACER
+            IMPRIMIR "Ingrese el nombre del curso ", i, ":"
+            LEER curso
+
+            IMPRIMIR "Ingrese la nota del curso ", curso, ":"
+            LEER nota
+
+            AGREGAR (curso, nota) A notas
+        FIN_PARA
+    FIN_FUNCION
+
+    # FUNCIÓN PARA MOSTRAR NOTAS
+    FUNCION mostrarNotas()
+        SI longitud(notas) = 0 ENTONCES
+            IMPRIMIR "No hay notas registradas."
+        SINO
+            PARA cada elemento EN notas HACER
+                IMPRIMIR "Curso: ", elemento.curso, " - Nota: ", elemento.nota
+            FIN_PARA
+        FIN_SI
+    FIN_FUNCION
+
+    # FUNCIÓN PARA ELIMINAR CURSO
+    FUNCION eliminarCurso()
+        IMPRIMIR "Ingrese el curso que desea eliminar:"
+        LEER cursoEliminar
+        eliminado ← FALSO
+
+        PARA i ← 0 HASTA longitud(notas)-1 HACER
+            SI notas[i].curso = cursoEliminar ENTONCES
+                ELIMINAR notas[i]
+                eliminado ← VERDADERO
+                IMPRIMIR "Curso eliminado correctamente."
+                ROMPER
+            FIN_SI
+        FIN_PARA
+
+        SI eliminado = FALSO ENTONCES
+            IMPRIMIR "Curso no encontrado, no se pudo eliminar."
+        FIN_SI
+    FIN_FUNCION
+
+    # MENÚ PRINCIPAL CON MODULARIZACIÓN
+    REPETIR
+        IMPRIMIR "===== GESTIÓN DE CURSOS ====="
+        IMPRIMIR "1. Registrar cursos"
+        IMPRIMIR "2. Mostrar cursos"
+        IMPRIMIR "3. Eliminar curso"
+        IMPRIMIR "4. Salir"
+        IMPRIMIR "Seleccione una opción:"
+        LEER opcion
+
+        SI opcion = 1 ENTONCES
+            registrarNotas()
+        SINO SI opcion = 2 ENTONCES
+            mostrarNotas()
+        SINO SI opcion = 3 ENTONCES
+            eliminarCurso()
+        SINO SI opcion = 4 ENTONCES
+            IMPRIMIR "Saliendo del sistema..."
+        SINO
+            IMPRIMIR "Opción inválida, intente de nuevo."
+        FIN_SI
+
+    MIENTRAS opcion <> 4
+
+FIN
