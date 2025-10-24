@@ -1,0 +1,69 @@
+INICIO
+
+    # Declarar estructura para guardar las notas
+    notas ← lista vacía
+    contadorAprobados ← 0
+    contadorReprobados ← 0
+
+    # REGISTRO DE NOTAS CON CONDICIONALES Y CONTADORES
+    IMPRIMIR "¿Cuántos cursos desea registrar?"
+    LEER n
+
+    PARA i ← 1 HASTA n HACER
+        IMPRIMIR "Ingrese el nombre del curso ", i, ":"
+        LEER curso
+
+        IMPRIMIR "Ingrese la nota del curso ", curso, ":"
+        LEER nota
+
+        AGREGAR (curso, nota) A notas
+
+        # Condicionales + Contadores
+        SI nota >= 60 ENTONCES
+            contadorAprobados ← contadorAprobados + 1
+        SINO
+            contadorReprobados ← contadorReprobados + 1
+        FIN_SI
+    FIN_PARA
+
+    # MOSTRAR RESULTADOS DE CONTADORES
+    IMPRIMIR "Cantidad de cursos aprobados: ", contadorAprobados
+    IMPRIMIR "Cantidad de cursos reprobados: ", contadorReprobados
+
+    # BÚSQUEDA LINEAL DE NOTA POR CURSO
+    IMPRIMIR "Ingrese el nombre del curso que desea buscar:"
+    LEER buscarCurso
+
+    encontrado ← FALSO
+    PARA cada elemento EN notas HACER
+        SI elemento.curso = buscarCurso ENTONCES
+            IMPRIMIR "Curso encontrado: ", elemento.curso, " - Nota: ", elemento.nota
+            encontrado ← VERDADERO
+        FIN_SI
+    FIN_PARA
+
+    SI encontrado = FALSO ENTONCES
+        IMPRIMIR "Curso no encontrado."
+    FIN_SI
+
+    # ACTUALIZACIÓN DE DATOS
+    IMPRIMIR "Ingrese el curso que desea actualizar:"
+    LEER actualizarCurso
+
+    actualizado ← FALSO
+    PARA cada elemento EN notas HACER
+        SI elemento.curso = actualizarCurso ENTONCES
+            IMPRIMIR "Nota actual: ", elemento.nota
+            IMPRIMIR "Ingrese la nueva nota:"
+            LEER nuevaNota
+            elemento.nota ← nuevaNota
+            IMPRIMIR "Nota actualizada correctamente."
+            actualizado ← VERDADERO
+        FIN_SI
+    FIN_PARA
+
+    SI actualizado = FALSO ENTONCES
+        IMPRIMIR "No se encontró el curso para actualizar."
+    FIN_SI
+
+FIN
