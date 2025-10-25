@@ -8,7 +8,7 @@ Principales componentes:
 - **Algoritmos de ordenamiento:** Burbuja e Inserción, aplicados sobre la lista de notas.
 
 Tecnologías usadas
-- Lenguaje: **Python 3**
+- Lenguaje: **Python **
 - Entorno: **Consola / Terminal**
 - Estructuras empleadas: **listas, diccionarios, pilas, colas**
 - Algoritmos implementados: **Burbuja, Inserción**
