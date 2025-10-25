@@ -1,6 +1,3 @@
-# Autor: Daniel Pirir
-# Descripción: Sistema de consola para registrar, consultar y gestionar notas de cursos.
-
 from collections import deque
 
 # =========================================
